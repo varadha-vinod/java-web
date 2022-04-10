@@ -4,12 +4,12 @@ phases:
   install:
     commands:
       - apt-get update -y
-      - apt-get install -y openjdk-8-jdk
+      - apt-get install -y default-jdk
       - apt-get install -y maven
       - apt-get install -y jq
-      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
-      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
-      - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+      - unzip ./sonar-scanner-cli-4.7.0.2747-linux.zip
+      - export PATH=$PATH:./sonar-scanner-4.7.0.2747-linux/bin/
   pre_build:
     commands:
       - sonar-scanner -Dsonar.organization=varadha-vinod-1 -Dsonar.projectKey=varadha-vinod_java-web -Dsonar.sources=src -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=5e65e37d36d210ba91464340677e7232a5e9d5ff
