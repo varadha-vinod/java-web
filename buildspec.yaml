@@ -16,12 +16,7 @@ phases:
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=varadha-vinod_java-web > analysis.json
       - status=`cat analysis-1.json | awk -F"," '{print $2}'|awk -F"{" '{print $2}'|awk -F"\"" '{print $4}'`
-      - if:
-	   match: $status == "ERROR"
-		- echo " Sonar Analysis Failed "
-		- exit 1
-	   else:
-		- echo " Sonar Analysis Successfull
+      - echo $status
   build:
     commands:
       - echo Build started on `date`
